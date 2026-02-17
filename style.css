@@ -48,18 +48,18 @@ body {
     margin-top: 20px;
 }
 
+
 body {
     display: flex;
-    height:100vh;
-    max-width: 1300px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 10px;
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
 }
+
 
 .sidebar {
     border-right: 1px solid var(--twitter-background);
-    flex: 0.2;
+    flex: 0 0 250px;
     min-width: 250px;
     margin-top: 20px;
     padding-left: 20px;
@@ -74,11 +74,14 @@ body {
 /* feed */
 
 .feed {
-    flex: 0.5;
+
+    flex: 1;
     border-right: 1px solid var(--twitter-background);
-    min-width: fit-content;
-    overflow-y: scroll;
+    overflow-y: auto;
+    min-width: 0;   /* VERY IMPORTANT */
 }
+
+
 
 .feed__header {
     position: sticky;
@@ -159,11 +162,14 @@ body {
     border-bottom: 1px solid var(--twitter-background);
     padding-bottom: 10px;
 }
+
 .post__body img {
-    width: 450px;
-    object-fit: contain;
+    width: 100%;
+    height: auto;
     border-radius: 20px;
 }
+
+
 
 .post__footer {
     display: flex;
@@ -205,7 +211,7 @@ body {
 /* widgets */
 
 .widgets {
-    flex: 0.3;
+    flex: 0 0 350px;
 }
 
 .widgets__input{
@@ -243,3 +249,22 @@ body {
 }
 
 
+
+
+@media (max-width: 1000px) {
+
+    .widgets {
+        display: none;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .feed {
+        flex: 1;
+    }
+}
